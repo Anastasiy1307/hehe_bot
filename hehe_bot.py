@@ -16,11 +16,18 @@ def main(message : telebot.types.Message):
     num_random= random.randint(1,101)
     if num_random <= 35:
         random_place = random.choice(no_kusb)
-        user = '@' + message.from_user.username +' '+ random_place
+        if message.sender_chat:
+            user = '@' + message.sender_chat.username + ' ' + random_place
+        else:
+            user = '@' + message.from_user.username +' '+ random_place
         bot.send_message(message.chat.id, user)
     else:
+       
         random_place = random.choice(place_for_kusb)
-        user = '@'+message.from_user.username + ' укусил ' + foruser + ' за '+ random_place
+        if message.sender_chat:
+            user = '@' + message.sender_chat.username + ' укусил ' + foruser + ' за ' + random_place
+        else:
+            user = '@' + message.from_user.username + ' укусил ' + foruser + ' за ' + random_place
         bot.send_message(message.chat.id, user)
 
 @bot.message_handler(commands=['обнять'])
