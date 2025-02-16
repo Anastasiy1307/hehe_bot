@@ -12,7 +12,7 @@ def main(message : telebot.types.Message):
                 foruser = message.text[entity.offset:entity.offset + entity.length]
                # await message.reply_text(foruser)
     place_for_kusb = ('пальчик', 'лапку', 'руку', 'коленку', 'локоть', 'плечо', 'жопку', 'голову', 'ушко', 'шею', 'ногу' ,'нос' ,'предплечье','грудь')
-    no_kusb = ('Эх, не судьба...','Цель увернулась!','Я уже радовалась кусю, а ты увернулся! ','А зубки-то проскользнули...','Попытка кусь – не пытка, но промах!')
+    no_kusb = ('Эх, не судьба...','Цель увернулась!','Я уже радовался кусю, а ты увернулся! ','А зубки-то проскользнули...','Попытка кусь – не пытка, но промах!')
     num_random= random.randint(1,101)
     if num_random <= 35:
         random_place = random.choice(no_kusb)
