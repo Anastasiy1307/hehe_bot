@@ -12,22 +12,22 @@ def main(message : telebot.types.Message):
                 foruser = message.text[entity.offset:entity.offset + entity.length]
                # await message.reply_text(foruser)
     place_for_kusb = ('пальчик', 'лапку', 'руку', 'коленку', 'локоть', 'плечо', 'жопку', 'голову', 'ушко', 'шею', 'ногу' ,'нос' ,'предплечье','грудь')
-    no_kusb = ('Эх, не судьба...','Цель увернулась!','Я уже радовался кусю, а ты увернулся! ','А зубки-то проскользнули...','Попытка кусь – не пытка, но промах!')
+    no_kusb = ('Эх, не судьба...','Цель увернулась!','Я уже радовалась кусю, а ты увернулся! ','А зубки-то проскользнули...','Попытка кусь – не пытка, но промах!')
     num_random= random.randint(1,101)
     if num_random <= 35:
         random_place = random.choice(no_kusb)
         if message.sender_chat:
-            user = '@' + message.sender_chat.username + ' ' + random_place
+            user = '@' + message.sender_chat + ' ' + random_place
         else:
-            user = '@' + message.from_user.username +' '+ random_place
+            user = '@' + message.from_user +' '+ random_place
         bot.send_message(message.chat.id, user)
     else:
-       
+
         random_place = random.choice(place_for_kusb)
         if message.sender_chat:
-            user = '@' + message.sender_chat.username + ' укусил ' + foruser + ' за ' + random_place
+            user = '@' + message.sender_chat + ' укусил ' + foruser + ' за ' + random_place
         else:
-            user = '@' + message.from_user.username + ' укусил ' + foruser + ' за ' + random_place
+            user = '@' + message.from_user + ' укусил ' + foruser + ' за ' + random_place
         bot.send_message(message.chat.id, user)
 
 @bot.message_handler(commands=['обнять'])
